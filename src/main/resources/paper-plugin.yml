@@ -1,0 +1,9 @@
+name: Excavator
+version: '${version}'
+
+main: org.mikrowellentoast.excavator.Excavator
+api-version: '26.2'
+
+bootstrapper: org.mikrowellentoast.excavator.ExcavatorBootstrap
+
+load: POSTWORLD
