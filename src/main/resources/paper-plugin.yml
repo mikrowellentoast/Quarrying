@@ -1,6 +1,6 @@
 name: Quarrying
 version: '${version}'
-description: A plugin that adds 3x3 functionality to Minecraft.
+description: A plugin that adds 3x3 mining to Minecraft.
 author: mikrowellentoast
 
 main: org.mikrowellentoast.quarrying.Quarrying
