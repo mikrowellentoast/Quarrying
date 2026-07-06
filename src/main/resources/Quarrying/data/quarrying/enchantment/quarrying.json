@@ -1,0 +1,27 @@
+{
+  "description": {
+    "translate": "enchantment.quarrying",
+    "fallback": "Quarrying"
+  },
+
+  "supported_items": "#quarrying:quarrying_tools",
+  "primary_items": "#quarrying:quarrying_tools",
+
+  "weight": 1,
+  "max_level": 3,
+
+  "min_cost": {
+    "base": 5,
+    "per_level_above_first": 8
+  },
+
+  "max_cost": {
+    "base": 65,
+    "per_level_above_first": 8
+  },
+
+  "anvil_cost": 2,
+  "slots": [
+    "hand"
+  ]
+}

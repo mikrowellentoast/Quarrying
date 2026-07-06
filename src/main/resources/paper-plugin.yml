@@ -1,9 +1,11 @@
-name: Excavator
+name: Quarrying
 version: '${version}'
+description: A plugin that adds 3x3 functionality to Minecraft.
+author: mikrowellentoast
 
-main: org.mikrowellentoast.excavator.Excavator
+main: org.mikrowellentoast.quarrying.Quarrying
 api-version: '26.2'
 
-bootstrapper: org.mikrowellentoast.excavator.ExcavatorBootstrap
+bootstrapper: org.mikrowellentoast.quarrying.QuarryingBootstrap
 
 load: POSTWORLD
