@@ -27,8 +27,9 @@ public class QuarryingUtils {
         if (stored == null) return 1;
 
 
-        return Math.min(Math.max(stored, 1), maxLevel);
+        return Math.min(stored, maxLevel);
     }
+
 
     public static void setActiveLevel(ItemStack item, int level) {
         if (item == null || !item.hasItemMeta()) return;
@@ -43,7 +44,7 @@ public class QuarryingUtils {
 
     public static int cycleLevel(int current, int maxLevel) {
         int next = current + 1;
-        if (next > maxLevel) next = 1;
+        if (next > maxLevel) next = 0;
         return next;
     }
 
@@ -90,20 +91,24 @@ public class QuarryingUtils {
 
         lore.removeIf(line -> {
             String stripped = ChatColor.stripColor(line);
-            return stripped.startsWith("Strict:") || stripped.startsWith("Current:") || stripped.equals("--------------------");
+            return stripped.startsWith("Filter:") || stripped.startsWith("Radius:") || stripped.equals("--------------------");
         });
 
         lore.add(ChatColor.GRAY + "--------------------");
 
 
-        lore.add(ChatColor.GRAY + "Current: " + ChatColor.GREEN + "3x3x" + level);
+        if (level > 0) {
+            lore.add(ChatColor.GRAY + "Radius: " + ChatColor.GREEN + "3x3x" + level);
+        } else {
+            lore.add(ChatColor.GRAY + "Radius: " + ChatColor.RED + "Disabled");
+        }
 
 
         String strictStatus = strict
                 ? ChatColor.GREEN + "Enabled"
                 : ChatColor.RED + "Disabled";
 
-        lore.add(ChatColor.GRAY + "Strict: " + strictStatus);
+        lore.add(ChatColor.GRAY + "Filter: " + strictStatus);
 
         meta.setLore(lore);
         item.setItemMeta(meta);

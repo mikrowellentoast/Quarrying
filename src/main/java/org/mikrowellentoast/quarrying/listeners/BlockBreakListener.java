@@ -73,6 +73,10 @@ public class BlockBreakListener implements Listener {
         int maxLevel = itemInHand.getEnchantmentLevel(enchant);
         int level = QuarryingUtils.getActiveLevel(itemInHand, maxLevel);
 
+        if (level <= 0) {
+            return;
+        }
+
 
         BlockFace face = player.getTargetBlockFace(5);
         if (face != null) {

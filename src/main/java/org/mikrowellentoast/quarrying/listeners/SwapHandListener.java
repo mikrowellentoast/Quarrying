@@ -44,7 +44,7 @@ public class SwapHandListener implements Listener {
             QuarryingUtils.toggleStrictBlockTypeMatching(itemInMainHand);
 
             boolean isStrict = QuarryingUtils.isStrictBlockTypeMatching(itemInMainHand);
-            String message = ChatColor.GRAY + "Strict block type matching: " + (isStrict ? ChatColor.GREEN + "enabled" : ChatColor.RED + "disabled");
+            String message = ChatColor.GRAY + "Filter mode: " + (isStrict ? ChatColor.GREEN + "enabled" : ChatColor.RED + "disabled");
             player.sendActionBar(net.kyori.adventure.text.Component.text(message));
             return;
         }
@@ -57,8 +57,14 @@ public class SwapHandListener implements Listener {
 
         QuarryingUtils.setActiveLevel(itemInMainHand, newLevel);
 
-        player.sendActionBar(
-                net.kyori.adventure.text.Component.text("3x3x" + newLevel).color(NamedTextColor.GREEN)
-        );
+        if (newLevel > 0) {
+            player.sendActionBar(
+                    net.kyori.adventure.text.Component.text("3x3x" + newLevel).color(NamedTextColor.GREEN)
+            );
+        } else {
+            player.sendActionBar(
+                    net.kyori.adventure.text.Component.text("Disabled").color(NamedTextColor.RED)
+            );
+        }
     }
 }
