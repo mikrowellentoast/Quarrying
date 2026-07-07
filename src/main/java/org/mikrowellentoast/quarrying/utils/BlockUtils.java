@@ -13,6 +13,10 @@ public class BlockUtils {
 
         Collection<Block> blocks = new ArrayList<>(9 * level);
 
+        if (face == null) {
+            face = BlockFace.UP;
+        }
+
         for (int a = -1; a <= 1; a++) {
             for (int b = -1; b <= 1; b++) {
 
@@ -59,7 +63,7 @@ public class BlockUtils {
                         }
 
                         default -> {
-
+                            continue;
                         }
                     }
 
