@@ -8,10 +8,6 @@ import java.util.Set;
 
 public class TagUtils {
 
-    // ----------------------------
-    // Helper methods
-    // ----------------------------
-
     @SafeVarargs
     private static boolean anyTag(Material m, Tag<Material>... tags) {
         for (Tag<Material> tag : tags) {
@@ -24,9 +20,6 @@ public class TagUtils {
         return set.contains(m);
     }
 
-    // ----------------------------
-    // Predefined sets
-    // ----------------------------
 
     private static final Set<Material> SHOVEL_BLOCKS = EnumSet.of(
             Material.GRAVEL,
@@ -41,9 +34,6 @@ public class TagUtils {
             Material.ROOTED_DIRT
     );
 
-    // ----------------------------
-    // Queries
-    // ----------------------------
 
     public static boolean isMiningStone(Material m) {
         return anyTag(m,
