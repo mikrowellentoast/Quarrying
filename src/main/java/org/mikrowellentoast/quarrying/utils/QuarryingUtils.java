@@ -80,7 +80,7 @@ public class QuarryingUtils {
 
         ItemMeta meta = item.getItemMeta();
 
-        int level = QuarryingUtils.getActiveLevel(item, 3); // or maxLevel dynamically if you store it
+        int level = QuarryingUtils.getActiveLevel(item, 3);
         boolean strict = meta.getPersistentDataContainer()
                 .getOrDefault(STRICT_KEY, PersistentDataType.INTEGER, 0) == 1;
 
