@@ -1,8 +1,7 @@
 package org.mikrowellentoast.quarrying.listeners;
 
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 import org.bukkit.enchantments.Enchantment;
@@ -44,12 +43,16 @@ public class SwapHandListener implements Listener {
             QuarryingUtils.toggleStrictBlockTypeMatching(itemInMainHand);
 
             boolean isStrict = QuarryingUtils.isStrictBlockTypeMatching(itemInMainHand);
-            String message = ChatColor.GRAY + "Filter mode: " + (isStrict ? ChatColor.GREEN + "enabled" : ChatColor.RED + "disabled");
-            player.sendActionBar(net.kyori.adventure.text.Component.text(message));
+
+            Component message = Component.text("Filter mode: ", NamedTextColor.GRAY)
+                    .append(Component.text(
+                            isStrict ? "enabled" : "disabled",
+                            isStrict ? NamedTextColor.GREEN : NamedTextColor.RED
+                    ));
+
+            player.sendActionBar(message);
             return;
         }
-
-
 
         int maxLevel = itemInMainHand.getEnchantmentLevel(enchant);
         int currentLevel = QuarryingUtils.getActiveLevel(itemInMainHand, maxLevel);
@@ -59,11 +62,11 @@ public class SwapHandListener implements Listener {
 
         if (newLevel > 0) {
             player.sendActionBar(
-                    net.kyori.adventure.text.Component.text("3x3x" + newLevel).color(NamedTextColor.GREEN)
+                    Component.text("3x3x" + newLevel).color(NamedTextColor.GREEN)
             );
         } else {
             player.sendActionBar(
-                    net.kyori.adventure.text.Component.text("Disabled").color(NamedTextColor.RED)
+                    Component.text("Disabled").color(NamedTextColor.RED)
             );
         }
     }
