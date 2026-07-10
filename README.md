@@ -21,7 +21,7 @@ The level of `Quarrying` on your tool decides how deep the 3x3 area goes:
 
 Hold your tool and press your **offhand swap key** to cycle through the different depths. You can turn it off entirely too if you just want to mine normally.
 
-### Strict mode
+### Filter mode
 
-By default the tool grabs anything in the same category (ore/stone, dirt/sand/etc). Press Shift + F for Strict mode to only mine the exact block you started on
+By default the tool grabs anything in the same category (ore/stone, dirt/sand/etc). Press Shift + F for 'Filter mode' to only mine the exact block you started on
 
