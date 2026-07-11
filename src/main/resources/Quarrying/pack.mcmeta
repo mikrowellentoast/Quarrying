@@ -1,7 +1,6 @@
 {
   "pack": {
     "description": "Adds the Quarrying Enchantment for Quarrying plugin",
-    "min_format": [82, 0],
-    "max_format": [107.1, 0]
+    "pack_format": 42
   }
 }
